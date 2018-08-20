@@ -21,4 +21,4 @@ def preprocess(filenames):
                 try:
                     index[name][word] += 1
                 except KeyError:
-                    index[name][word] = 0
+                    index[name][word] = 1
