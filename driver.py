@@ -3,9 +3,9 @@ import regexp
 import indexed
 
 target_filenames = [
-    'sample_files/french_armed_forces.txt',
-    'sample_files/hitchhikers.txt',
-    'sample_files/warp_drive.txt',
+    'sample_documents/french_armed_forces.txt',
+    'sample_documents/hitchhikers.txt',
+    'sample_documents/warp_drive.txt',
 ]
 
 
