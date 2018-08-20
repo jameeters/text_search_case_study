@@ -1,4 +1,9 @@
+import re
+
+
 def readfile(filename):
     with open(filename, 'r') as f:
         for line in f:
-            yield line.lower()
+            line = line.lower()
+            line = re.sub(r'[\.,\(\)\"-]', '', line) # remove some punctuation
+            yield line

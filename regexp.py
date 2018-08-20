@@ -9,5 +9,8 @@ def search(filenames, term):
         results.append(0)
         text = readfile(name)
         for line in text:
-            results[-1] += len(re.findall(pattern, line))
+            # Split to match only words, not substrings of words.
+            for word in line.split(' '):
+                if re.fullmatch(pattern, word) is not None:
+                    results[-1] += 1
     print(results)

@@ -1,5 +1,7 @@
 import simple
 import regexp
+import indexed
+
 target_filenames = [
     'sample_files/french_armed_forces.txt',
     'sample_files/hitchhikers.txt',
@@ -8,7 +10,11 @@ target_filenames = [
 
 
 def main():
-    term = input('Enter a search term: ').lower()
+    print('Preprocessing files for indexed search.')
+    indexed.preprocess(target_filenames)
+    print('Done.')
+
+    term = input('Enter a search term: ').lower().strip(' ')
     assert len(term) > 0
 
     method = int(input('''
@@ -26,7 +32,7 @@ def main():
         regexp.search(target_filenames, term)
         pass
     elif method == 3:
-        # indexed search
+        indexed.search(target_filenames, term)
         pass
 
 
