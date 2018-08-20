@@ -13,4 +13,4 @@ def search(filenames, term):
             for word in line.split(' '):
                 if re.fullmatch(pattern, word) is not None:
                     results[-1] += 1
-    print(results)
+    return results

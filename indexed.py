@@ -9,7 +9,7 @@ def search(filenames, term):
             results.append(index[name][term])
         except KeyError:
             results.append(0)
-    print(results)
+    return results
 
 
 def preprocess(filenames):

@@ -8,4 +8,4 @@ def search(filenames, term):
         text = readfile(name)
         for line in text:
             results[-1] += line.split(' ').count(term)
-    print(results)
+    return results
