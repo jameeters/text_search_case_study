@@ -1,4 +1,5 @@
 import simple
+import regexp
 target_filenames = [
     'sample_files/french_armed_forces.txt',
     'sample_files/hitchhikers.txt',
@@ -22,13 +23,16 @@ def main():
         # simple string matching
         simple.search(target_filenames, term)
     elif method == 2:
-        # regular expression search
+        regexp.search(target_filenames, term)
         pass
     elif method == 3:
         # indexed search
         pass
 
-main()
+
+while True:
+    main()
+    print('-' * 30)
 
 
 
