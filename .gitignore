@@ -102,3 +102,8 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+### Manual Additions
+
+tests/data_files/*
+!tests/data_files/words.txt
