@@ -1,17 +1,17 @@
-import simple
-import regexp
-import indexed
+import SimpleSearch
+import RegexpSearch
+import IndexedSearch
 
 target_filenames = [
     'sample_documents/french_armed_forces.txt',
     'sample_documents/hitchhikers.txt',
-    'sample_documents/warp_drive.txt',
+    'sample_documents/warp_drive.txt'
 ]
 
 
 def main():
     print('Preprocessing files for indexed search.')
-    indexed.preprocess(target_filenames)
+    IndexedSearch.preprocess(target_filenames)
     print('Done.')
 
     term = input('Enter a search term: ').lower().strip(' ')
@@ -27,12 +27,12 @@ def main():
 
     if method == 1:
         # simple string matching
-        simple.search(target_filenames, term)
+        SimpleSearch.search(target_filenames, term)
     elif method == 2:
-        regexp.search(target_filenames, term)
+        RegexpSearch.search(target_filenames, term)
         pass
     elif method == 3:
-        indexed.search(target_filenames, term)
+        IndexedSearch.search(target_filenames, term)
         pass
 
 
