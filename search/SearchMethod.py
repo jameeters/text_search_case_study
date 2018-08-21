@@ -11,11 +11,12 @@ class SearchMethod:
         if self.pretty_target_filenames is None:
             self.pretty_target_filenames = [name.split('/')[-1] for name in self.target_files]
 
-        # The indices of the entries in results, from highest to lowest
-        # (I.e. the first entry is the index of the largest entry.)
-        order = [t[0] for t in sorted(enumerate(results))]
-        pretty_results = [(self.pretty_target_filenames[i], results[i]) for i in order]
-        return pretty_results
+        # Results ordered from greatest to least, but with the format [(result, name)...]
+        pairs = sorted([(results[i], self.pretty_target_filenames[i]) for i, _ in enumerate(results)], reverse=True)
+        # Reverse each tuple
+        pairs = [p[::-1] for p in pairs]
+        return pairs
+
 
 
     def search(self, term):
