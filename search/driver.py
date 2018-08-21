@@ -1,15 +1,18 @@
+import timeit
 from search.RegexpSearch import RegexpSearch
 from search.SimpleSearch import SimpleSearch
 from search.IndexedSearch import IndexedSearch
 from search import CONSTANTS
-from pprint import pprint
+
 
 def interactive():
     print('Preprocessing files for indexed search.')
+    start = timeit.default_timer()
     indexed_searcher = IndexedSearch()
     indexed_searcher.set_target_files(CONSTANTS.target_filenames)
     indexed_searcher.preprocess()
-    print('Done.')
+    elapsed = (timeit.default_timer() - start) * 1000
+    print('Done. {} ms elapsed'. format(elapsed))
 
     term = input('Enter a search term: ').lower().strip(' ')
     assert len(term) > 0
@@ -22,6 +25,7 @@ def interactive():
     > '''))
     assert 1 <= method <= 3
 
+    start = timeit.default_timer()
     if method == 1:
         # simple string matching
         simple_searcher = SimpleSearch()
@@ -37,14 +41,12 @@ def interactive():
         results = indexed_searcher.search(term)
         results = indexed_searcher.prettyfy_results(results)
 
+    elapsed = (timeit.default_timer() - start) * 1000
     for r in results:
         print(r)
-
+    print('{} ms elapsed'.format(elapsed))
 
 if __name__ == '__main__':
     while True:
         interactive()
         print('-' * 30)
-
-
-
