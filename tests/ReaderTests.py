@@ -1,5 +1,6 @@
 import unittest
-import reader
+
+from search import reader
 
 
 class ReaderTests(unittest.TestCase):

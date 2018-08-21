@@ -1,9 +1,9 @@
-from reader import readfile
-from SearchMethod import SearchMethod
+from search.SearchMethod import SearchMethod
+
+from search.reader import readfile
 
 
 class IndexedSearch(SearchMethod):
-
     def __init__(self):
         super().__init__()
         self.index = None

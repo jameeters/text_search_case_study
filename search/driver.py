@@ -1,6 +1,7 @@
-import SimpleSearch
 import RegexpSearch
-import IndexedSearch
+import SimpleSearch
+
+from search import IndexedSearch
 
 target_filenames = [
     'sample_documents/french_armed_forces.txt',

@@ -1,9 +1,8 @@
-from reader import readfile
-from SearchMethod import SearchMethod
+from search.SearchMethod import SearchMethod
+from search.reader import readfile
 
 
 class SimpleSearch(SearchMethod):
-
     def search(self, term):
         results = []
         for name in self.target_files:

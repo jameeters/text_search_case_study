@@ -1,5 +1,5 @@
 import unittest
-from IndexedSearch import IndexedSearch
+from search.IndexedSearch import IndexedSearch
 from tests import CONSTANTS
 
 
@@ -9,14 +9,14 @@ class IndexedTests(unittest.TestCase):
         self.indexed_searcher.set_target_files(CONSTANTS.SEARCH_TEST_FILES)
 
         self.expected_index = {
-            'test_documents/doc2.txt': {
+            'tests/test_documents/doc2.txt': {
                 'one': 1,
                 'two': 2,
                 'three': 2,
                 'four': 3,
                 'five': 1
             },
-            'test_documents/doc3.txt': {
+            'tests/test_documents/doc3.txt': {
                 'one': 3,
                 'two': 2,
                 'three': 1,
@@ -47,7 +47,3 @@ class IndexedTests(unittest.TestCase):
             actual_results = self.indexed_searcher.search(w)
 
             self.assertListEqual(actual_results, expected_results)
-
-
-if __name__ == '__main__':
-    unittest.main()
