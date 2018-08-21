@@ -11,8 +11,12 @@ class SearchMethod:
         if self.pretty_target_filenames is None:
             self.pretty_target_filenames = [name.split('/')[-1] for name in self.target_files]
 
-        pretty_results = dict(zip(self.pretty_target_filenames, results))
+        # The indices of the entries in results, from highest to lowest
+        # (I.e. the first entry is the index of the largest entry.)
+        order = [t[0] for t in sorted(enumerate(results))]
+        pretty_results = [(self.pretty_target_filenames[i], results[i]) for i in order]
         return pretty_results
+
 
     def search(self, term):
         raise NotImplementedError

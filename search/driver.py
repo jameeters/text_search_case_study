@@ -1,18 +1,14 @@
-import RegexpSearch
-import SimpleSearch
+from search.RegexpSearch import RegexpSearch
+from search.SimpleSearch import SimpleSearch
+from search.IndexedSearch import IndexedSearch
+from search import CONSTANTS
+from pprint import pprint
 
-from search import IndexedSearch
-
-target_filenames = [
-    'sample_documents/french_armed_forces.txt',
-    'sample_documents/hitchhikers.txt',
-    'sample_documents/warp_drive.txt'
-]
-
-
-def main():
+def interactive():
     print('Preprocessing files for indexed search.')
-    IndexedSearch.preprocess(target_filenames)
+    indexed_searcher = IndexedSearch()
+    indexed_searcher.set_target_files(CONSTANTS.target_filenames)
+    indexed_searcher.preprocess()
     print('Done.')
 
     term = input('Enter a search term: ').lower().strip(' ')
@@ -28,18 +24,27 @@ def main():
 
     if method == 1:
         # simple string matching
-        SimpleSearch.search(target_filenames, term)
+        simple_searcher = SimpleSearch()
+        simple_searcher.set_target_files(CONSTANTS.target_filenames)
+        results = simple_searcher.search(term)
+        results = simple_searcher.prettyfy_results(results)
     elif method == 2:
-        RegexpSearch.search(target_filenames, term)
-        pass
+        regexp_searcher = RegexpSearch()
+        regexp_searcher.set_target_files(CONSTANTS.target_filenames)
+        results = regexp_searcher.search(term)
+        results = regexp_searcher.prettyfy_results(results)
     elif method == 3:
-        IndexedSearch.search(target_filenames, term)
-        pass
+        results = indexed_searcher.search(term)
+        results = indexed_searcher.prettyfy_results(results)
+
+    for r in results:
+        print(r)
 
 
-while True:
-    main()
-    print('-' * 30)
+if __name__ == '__main__':
+    while True:
+        interactive()
+        print('-' * 30)
 
 
 
