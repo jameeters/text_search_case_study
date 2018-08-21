@@ -29,3 +29,7 @@ class RegexpTests(unittest.TestCase):
         actual_results = self.regexp_searcher.search(term)
         self.assertListEqual(actual_results, expected_results,
                              'Regexp search with regexp term does not produce expected results!')
+
+
+if __name__ == '__main__':
+    unittest.main()

@@ -47,3 +47,6 @@ class IndexedTests(unittest.TestCase):
             actual_results = self.indexed_searcher.search(w)
 
             self.assertListEqual(actual_results, expected_results)
+
+if __name__ == '__main__':
+    unittest.main()
