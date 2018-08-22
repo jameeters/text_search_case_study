@@ -4,15 +4,13 @@ import random
 from search.SimpleSearch import SimpleSearch
 from search.RegexpSearch import RegexpSearch
 from search.IndexedSearch import IndexedSearch
-import search.CONSTANTS
-
 
 # Files to write data to
 data_files = {
-    'simple': 'data_files/simple2.csv',
-    'regexp': 'data_files/regexp2.csv',
-    'indexed': 'data_files/indexed2.csv',
-    'setup': 'data_files/setup2.csv'
+    'simple': 'data_files/simple.csv',
+    'regexp': 'data_files/regexp.csv',
+    'indexed': 'data_files/indexed.csv',
+    'setup': 'data_files/setup.csv'
 }
 # prep the setup times file
 setup_file = open(data_files['setup'], 'w')

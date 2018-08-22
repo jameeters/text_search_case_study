@@ -105,5 +105,5 @@ venv.bak/
 
 ### Manual Additions
 
-tests/data_files/*
-!tests/data_files/words.txt
+data_files/*
+!data_files/words.txt
